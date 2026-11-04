@@ -31,7 +31,9 @@ body.mobileMode{overflow:hidden}body.mobileMode .shell{width:min(98vw,1200px);ma
 canvas{touch-action:none!important;-webkit-user-select:none;user-select:none}button{touch-action:manipulation}body{-webkit-text-size-adjust:100%}
 
 body.mobileMode:has(.intro:not(.hidden)) .rotate{display:none!important}@media(max-width:950px) and (orientation:landscape){body.mobileMode .rotate{display:none!important}}@media(max-width:950px) and (orientation:portrait){body.mobileMode .rotate{display:flex!important}}.soundToggle{position:fixed;bottom:10px;right:10px;z-index:100;background:#182431;border:1px solid #4b586b;color:white;border-radius:10px;padding:10px;font:11px monospace}
-</style></head><body><button class="soundToggle" id="soundToggle">♫ AUDIO OFF</button><div id="rotate" class="rotate"><div class="rotateIcon">▯ ↻</div><h2>RUOTA IL DISPOSITIVO</h2><p>Per giocare da telefono, utilizza la modalità orizzontale.</p></div>
+
+.minuteAlert{position:fixed;z-index:110;top:10%;left:50%;transform:translate(-50%,-20px) scale(.9);opacity:0;pointer-events:none;background:#ff405b;color:#fff;border:2px solid #fff;border-radius:12px;padding:18px 26px;font:900 clamp(17px,4vw,30px) monospace;text-align:center;box-shadow:0 0 45px #ff405b88}.minuteAlert.active{animation:minuteUrgency 2.2s ease-out both}@keyframes minuteUrgency{0%{opacity:0;transform:translate(-50%,-30px) scale(.75)}12%,65%{opacity:1;transform:translate(-50%,0) scale(1.06)}85%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-12px) scale(.92)}}
+</style></head><body><button class="soundToggle" id="soundToggle">♫ AUDIO OFF</button><div id="minuteAlert" class="minuteAlert" aria-live="polite"></div><div id="rotate" class="rotate"><div class="rotateIcon">▯ ↻</div><h2>RUOTA IL DISPOSITIVO</h2><p>Per giocare da telefono, utilizza la modalità orizzontale.</p></div>
 <div id="intro" class="intro"><div class="introBox"><div class="introTop">THE <b>1%</b> PROTOCOL <span>EXPERIMENT 005</span></div><div class="proxy"><div class="antenna"></div><div class="proxyFace"><div class="proxyEyes"><i></i><i></i></div><div class="proxyMouth"></div></div><div class="proxyBody">PROXY</div></div><div class="speaker">PROXY // YOUR VERY UNHELPFUL GUIDE</div><div class="language"><label for="lang">LANGUAGE / LINGUA</label><select id="lang"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option></select></div><div id="dialogue" class="dialogue">Ehi. Sono PROXY. Ti guiderò attraverso una pessima idea. Piacere.</div><div class="introActions"><button id="nextDialogue" class="btn">CONTINUA →</button></div><div id="devicePanel" class="devicePanel hidden"><h3>COME VUOI GIOCARE?</h3><div class="deviceBtns"><button data-device="mobile">◫ MOBILE <small>Touchscreen · orizzontale</small></button><button data-device="desktop">▣ DESKTOP <small>Mouse consigliato</small></button></div></div><div id="checkout" class="checkout hidden"><div style="border:1px solid #5af5bc;border-radius:12px;padding:12px;margin:10px 0;background:#102b2a"><strong style="color:#5af5bc">↻ THE PROTOCOL IS EVOLVING</strong><p style="font-size:13px;line-height:1.5">Nuove sfide e modifiche ai livelli sono previste ogni settimana. Imparare a vincere oggi non significa saper vincere domani. <b>La rotazione automatica è in sviluppo.</b></p></div><div class="checkoutTop">ACCESS PASS <span>DEMO</span></div><div class="price">€3,99 <small>ONE-TIME ENTRY</small></div><p>Simulazione del pagamento. Non verrà addebitato nulla e non verranno richiesti dati bancari.</p><button id="fakePay" class="btn">SIMULA PAGAMENTO · €0,00 →</button><p class="tiny">L'eventuale rimborso promozionale è solo parte della storia del gioco. Nessun denaro reale in questa demo.</p></div></div></div>
 <main class="shell"><div class="top"><div class="brand">THE <b>1%</b> PROTOCOL</div><div class="tag">ARCADE / BUILD 0.7 IOS</div></div><div class="eyebrow">// ONE RUN. FIVE TRIALS.</div><h1>ESCAPE THE <em>PROTOCOL.</em></h1><p class="sub">Five precision trials. Ten minutes. No shortcuts.<br>Free gameplay prototype — no payments or refunds.</p><div class="hud"><div class="metric"><span>TIME LEFT</span><strong id="clock">10:00</strong></div><div class="metric"><span>STAGE</span><strong id="stage">00 / 05</strong></div><div class="metric"><span>FAILURES</span><strong id="fails">00</strong></div></div><div class="track"><div id="progress"></div></div><div class="gamewrap"><canvas id="game" width="500" height="500" aria-label="Arcade game area"></canvas><div class="flash" id="flash"></div><div class="rage" id="rage" aria-live="polite"></div><div class="overlay" id="overlay"><div class="symbol" id="symbol">◇</div><h2 id="ovTitle">ARE YOU<br>THE 1%?</h2><p id="ovDesc">Five arcade trials. One ten-minute countdown. Your reflexes are the only way out.</p><button class="btn" id="action">INITIATE PROTOCOL →</button></div></div><div class="bottom"><div><div class="stageName" id="name">AWAITING INITIATION</div><div class="desc" id="desc">Press initiate to begin. Touch and mouse supported.</div></div><div class="mini" id="mini">SYSTEM READY</div></div><div style="display:flex;justify-content:flex-end;margin:12px 0"><button id="devSkip" type="button" style="background:#242a35;border:1px dashed #687384;color:#cbd5e1;padding:9px 14px;border-radius:8px;cursor:pointer;font:12px monospace">DEV ONLY · SKIP LEVEL →</button></div><div style="color:#5af5bc;font:700 11px monospace;margin-top:10px">↻ WEEKLY EVOLUTION — New challenges planned every week · rotation in development.</div><div class="foot">FREE PROTOTYPE · CLIENT-SIDE RESULTS ARE NOT VERIFIED · NOT SUITABLE FOR REAL-MONEY REWARDS. Designed for pointer/touch input. Accessibility and device fairness require further testing.</div></main><div id="cancelCard" class="cancelCard hidden"><div class="cancelInner"><div class="proxy" style="transform:scale(.75);margin:-9px auto"><div class="antenna"></div><div class="proxyFace"><div class="proxyEyes"><i></i><i></i></div><div class="proxyMouth"></div></div><div class="proxyBody">PROXY</div></div><div class="eyebrow">CANCELLATION PROTOCOL</div><h2 id="cancelTitle"></h2><p id="cancelText"></p><button class="btn" id="cancelButton"></button></div></div><script>(()=>{'use strict';
 const C=document.getElementById('game'),g=C.getContext('2d'),$=id=>document.getElementById(id),W=500,TAU=Math.PI*2;
@@ -56,7 +58,7 @@ for(let i=0;i<8;i++)targets.push({x:55+rng()*390,y:65+rng()*370,phase:rng()*TAU,
 for(let i=0;i<11;i++){let col=i%4,row=Math.floor(i/4);hazards.push({x:80+col*112+(rng()-.5)*34,y:-80-row*140-(i%3)*57,vx:(rng()-.5)*25,vy:65+rng()*30,r:12+rng()*6,phase:rng()*TAU})}
 ghostPath=ghostRoute();ghostShow=performance.now()+6200;coreIndex=0;corePos={x:100,y:100};coreSentries=Array.from({length:5},(_,i)=>({x:70+i*90,y:80+i%2*320,phase:i*1.6}));
 $('stage').textContent=String(l).padStart(2,'0')+' / 05';$('progress').style.width=((l-1)*20)+'%';$('name').textContent=String(l).padStart(2,'0')+' — '+names[l];$('desc').textContent=lang==='it'?({1:'Tieni premuto senza rilasciare. Supera CINQUE percorsi.',2:'Colpisci 10 sfere verdi. Solo le rosse azzerano la combo.',3:'3 facili, 2 medie, 1 difficile, 1 estrema.',4:'Resisti 24 secondi. L’arena si restringe a 8 e 16 secondi.',5:'Raccogli 8 nuclei TENENDO PREMUTO. Le sentinelle ti fanno ricominciare.'}[l]):descs[l];$('mini').textContent=l===1?'CORRIDOR 1 / 5':'TRIAL '+l+' OF 5';state='playing';if(l===4){dodgeStart=performance.now();ball={x:250,y:420}}if(l===5){ball={x:250,y:250};spawnCore()}if(device==='mobile')mobilePrepare(l)}
-function start(){fails=0;$('fails').textContent='00';deadline=performance.now()+600000;prepare(1);hideOverlay()}
+function start(){lastSecond=-1;lastMinute=-1;fails=0;$('fails').textContent='00';deadline=performance.now()+600000;prepare(1);hideOverlay()}
 const levelTaunts={1:['Un muro. Era fermo.','Il cursore chiede il trasferimento.','Hai scoperto un nuovo modo di fallire.'],2:['Hai cliccato il nulla. Il nulla ringrazia.','La pallina verde è altrove, detective.','Ottimo click. Peccato non ci fosse niente.','Il vuoto non dà punti.'],3:['Il tempismo è un concetto astratto, vero?','Anello: 1. Tu: 0.','La finestra verde non si allarga per pietà.'],4:['Le palline rosse ti trovano simpatico.','Hai abbracciato un ostacolo.','Il radar ti ha scelto.'],5:['Quel nucleo non si raccoglie da solo.','La sicurezza ti ha appena espulso.','Hai appena regalato energia al sistema.']};let rageSeq=0;
 function showTaunt(message){const el=$('rage');el.textContent=message;el.classList.remove('show');void el.offsetWidth;el.classList.add('show');rageUntil=performance.now()+1450}
 const tauntTranslations={it:{1:['Un muro fermo. E hai perso.','Il cursore si è dimesso.','La precisione non è il tuo forte.'],2:['Hai cliccato il vuoto. Complimenti.','La verde era letteralmente verde.','Bel tentativo, ma il nulla non vale punti.'],red:['Hai scelto la ROSSA. Una scelta audace.','Il rosso significa fermati. Era un indizio.','Hai appena regalato la combo a PROXY.'],3:['Il tempismo è in ferie.','La finestra non aspetta nessuno.','Hai mancato anche questa.'],4:['L’ostacolo voleva un abbraccio.','Il radar ti ha trovato.','Hai confuso schivare con colpire.'],5:['La sentinella ringrazia.','Non dovevi toccare quella rossa.','La tua presa è durata pochissimo.']},en:{1:['The wall was standing still.','Your cursor has resigned.','Precision is not your thing.'],2:['You clicked absolutely nothing.','Green means green. Just saying.','The void awards zero points.'],red:['You picked RED. Bold choice.','Red means stop. That was a hint.','You just donated your streak.'],3:['Your timing is on vacation.','The window waits for no one.','Missed it. Again.'],4:['That obstacle wanted a hug.','The radar found you.','Dodging is not hugging.'],5:['The sentry says thanks.','Red was not your friend.','Your grip did not last.']},es:{1:['El muro estaba quieto.','Tu cursor ha dimitido.','La precisión no es lo tuyo.'],2:['Has pulsado la nada.','Verde significa verde.','El vacío no da puntos.'],red:['Elegiste ROJO. Gran idea.','Rojo significa parar.','Acabas de perder tu racha.'],3:['Tu ritmo está de vacaciones.','La ventana no espera.','Fallaste otra vez.'],4:['El obstáculo quería un abrazo.','El radar te encontró.','Esquivar no es abrazar.'],5:['El centinela te da las gracias.','El rojo no era tu amigo.','No duró mucho tu agarre.']}};
@@ -124,7 +126,7 @@ $('cancelButton').onclick=()=>{if(cancelStep<3){cancelStep++;renderCancellation(
 
 
 /* MOBILE ARCADE v2 — five mechanical challenges, shared ten-minute clock */
-let m={},audioOn=false,ac=null,musicTick=0,musicTimer=null;
+let m={},audioOn=false,ac=null,musicTick=0,musicTimer=null,lastSecond=-1,lastMinute=-1;
 function unlockAudio(){
  if(!audioOn)return;
  try{
@@ -152,12 +154,13 @@ $('soundToggle').onclick=()=>{
 ['touchstart','pointerdown','keydown'].forEach(ev=>document.addEventListener(ev,()=>{if(audioOn)unlockAudio()},{passive:true}));
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&audioOn)unlockAudio()});
 musicTimer=setInterval(()=>{
- if(!audioOn||state!=='playing')return;
+ if(!audioOn||document.hidden)return;
  musicTick++;
  let bass=[110,110,146.83,164.81,130.81,146.83,98,130.81][musicTick%8];
  sound(bass,.28,'triangle',.095);
  if(musicTick%4===0)sound(440,.065,'square',.035);
 },310);
+document.addEventListener('click',e=>{if(!audioOn)return;let btn=e.target.closest('button');if(!btn||btn.id==='soundToggle')return;sound(420,.085,'square',.11)},{capture:true});
 function orientationCheck(){
  if(device!=='mobile'||!introReady)return;
  let portrait=innerHeight>innerWidth;
@@ -167,7 +170,7 @@ function orientationCheck(){
 addEventListener('resize',orientationCheck);
 addEventListener('orientationchange',()=>setTimeout(orientationCheck,250));
 const mobileTitles=['','VECTOR RUSH','FALSE SIGNAL: TOUCH','PERFECT RELEASE','NEON LANES','ORBIT LOCK'];
-const mobileDesc=['','Swipe in the shown direction before the countdown expires. Each success shortens the reaction window.','Catch the moving GREEN target. Red decoys move independently; only a red hit resets progress.','Hold to charge, release inside the narrow moving green window. Seven precision locks.','Dodge unpredictable falling obstacles. Safe lanes narrow as time passes.','Follow the rotating orbit for two full laps, maintaining contact and direction.'];
+const mobileDesc=['','Swipe the indicated arrow 18 times before the countdown expires. Each success shortens the reaction window.','Catch the moving GREEN target. Red decoys move independently; only a red hit resets progress.','Hold to charge, release inside the narrow moving green window. Seven precision locks.','Dodge unpredictable falling obstacles. Safe lanes narrow as time passes.','Follow the rotating orbit for two full laps, maintaining contact and direction.'];
 function mobilePrepare(l){
  m={n:0,down:false,start:null,last:null,at:0,lane:1,blocks:[],spawn:performance.now(),phase:0,progress:0,lastAngle:null,stepAt:performance.now(),goal:0,orbitStarted:false,shield:0};
  $('name').textContent=String(l).padStart(2,'0')+' — '+mobileTitles[l];
@@ -186,7 +189,7 @@ function mobileDown(p){
   let t=performance.now(),green=mobileGreen(t);
   if(dist(p,green)<29){m.n++;sound(690,.12);spark(green.x,green.y,'#5af5bc',12);if(m.n>=10)complete();return}
   for(let i=0;i<6;i++)if(dist(p,mobileRed(i,t))<24){fail('red');return}
-  showTaunt(tauntFor('empty'));
+  if(m.n>=6){fail('red')}else showTaunt(tauntFor('empty'));
  }else if(level===4){
   m.lane=clamp(m.lane+(p.x<250?-1:1),0,2);sound(320,.06);
  }else if(level===5){
@@ -207,6 +210,7 @@ function mobileMove(p){
   if(delta>0){m.progress+=delta;m.phase=a;m.lastAngle=a;if(m.progress>=TAU*2-.12)complete()}
  }
 }
+function mobileLockCenter(t){return .40+.19*Math.sin(t*.003+m.n*1.3)+.035*Math.sin(t*.0082+m.n*.8)+.018*Math.sin(t*.015+m.n*2.1)}
 function mobileUp(){
  if(!m.down)return;
  m.down=false;
@@ -215,11 +219,11 @@ function mobileUp(){
   let dx=p.x-m.start.x,dy=p.y-m.start.y,actual=Math.abs(dx)>Math.abs(dy)?(dx>0?0:2):(dy<0?1:3);
   let expected=(m.n*7+1)%4;
   if(Math.hypot(dx,dy)>=70&&actual===expected&&t-m.stepAt<Math.max(540,1800-m.n*95)){
-   m.n++;m.stepAt=t;sound(620,.09);if(m.n>=12)complete();
+   m.n++;m.stepAt=t;sound(620,.09);if(m.n>=18)complete();
   }else fail();
  }else if(level===3){
   let value=Math.min(1,(t-m.at)/1350);
-  let center=.40+.23*Math.sin(t*.003+m.n*1.3),tolerance=Math.max(.034,.10-m.n*.009);
+  let center=mobileLockCenter(t),tolerance=Math.max(.034,.10-m.n*.009);
   if(Math.abs(value-center)<=tolerance){m.n++;sound(700,.12);if(m.n>=7)complete()}
   else fail();
  }else if(level===5&&m.orbitStarted)fail();
@@ -247,13 +251,13 @@ function mobileRender(t){
   let remaining=Math.max(0,Math.max(540,1800-m.n*95)-(t-m.stepAt));
   g.font='bold 122px sans-serif';g.fillStyle='#5af5bc';g.fillText(['→','↑','←','↓'][(m.n*7+1)%4],250,300);
   g.fillStyle='#ff405b';g.fillRect(65,375,370*(remaining/1800),10);
-  g.font='17px monospace';g.fillStyle='#fff';g.fillText('SWIPE BEFORE TIME RUNS OUT',250,110);g.fillText(m.n+' / 12',250,445);
+  g.font='17px monospace';g.fillStyle='#fff';g.fillText('SWIPE BEFORE TIME RUNS OUT',250,110);g.fillText(m.n+' / 18',250,445);
  }else if(level===2){
   for(let i=0;i<6;i++){let q=mobileRed(i,t);circle(q.x,q.y,22,'#ff405b',10)}
   let q=mobileGreen(t);circle(q.x,q.y,27,'#5af5bc',22);circle(q.x,q.y,10,'#174f40');
   g.fillStyle='#fff';g.fillText('GREEN '+m.n+' / 10',250,475);
  }else if(level===3){
-  let val=m.down?Math.min(1,(t-m.at)/1350):0,center=.40+.23*Math.sin(t*.003+m.n*1.3),tol=Math.max(.034,.10-m.n*.009);
+  let val=m.down?Math.min(1,(t-m.at)/1350):0,center=mobileLockCenter(t),tol=Math.max(.034,.10-m.n*.009);
   g.fillStyle='#283443';g.fillRect(75,220,350,60);
   g.fillStyle='#5af5bc';g.fillRect(75+350*(center-tol),220,350*tol*2,60);
   g.fillStyle='#ff405b';g.fillRect(75+350*val-4,198,8,104);
@@ -273,5 +277,6 @@ function mobileRender(t){
  g.restore();
 }
 
-function frame(t){let dt=Math.min(.05,(t-prev)/1000||0);prev=t;if(rageUntil&&t>rageUntil){$('rage').classList.remove('show');rageUntil=0}if(state==='transition'&&t>=transitionEnd)prepare(level+1);if(state==='playing'){let remaining=deadline-t;$('clock').textContent=format(remaining);$('clock').classList.toggle('urgent',remaining<60000);if(remaining<=0){setOverlay('TIME<br>EXPIRED','Protocol locked after '+fails+' failures. Free demo — no money involved.','RETRY PROTOCOL ↗','✕')}else if(device==='mobile'){mobileTick(t,dt)}else if(level===3){angle+=dt*(2.7+hits*.65)*lockDirection}else if(level===4){let elapsed=(t-dodgeStart)/1000;let shrink=clamp((elapsed-8)/3,0,1)*45+clamp((elapsed-16)/3,0,1)*45;if(ball.x<shrink+13||ball.x>487-shrink){fail();}for(let h of hazards){if(state!=='playing')break;let homing=clamp((elapsed-9)/15,0,1);let dx=ball.x-h.x,dy=ball.y-h.y,d=Math.max(1,Math.hypot(dx,dy));h.vx+=dx/d*dt*145*homing;h.vy+=dy/d*dt*110*homing;h.vx=clamp(h.vx,-125,125);h.vy=clamp(h.vy,45,185);h.x+=h.vx*dt;h.y+=h.vy*dt;if(h.y>540){h.y=-80-Math.random()*180;h.x=45+Math.random()*410;h.vx=(Math.random()-.5)*35;h.vy=65+Math.random()*35}if(h.x<shrink+20||h.x>480-shrink)h.vx*=-1;if(dist(ball,h)<h.r+12){fail();break}}if(state==='playing'&&elapsed>=24)complete()}else if(level===5){let elapsed=(t-stageStart)/1000;for(let i=0;i<coreSentries.length;i++){let h=coreSentries[i];h.x=250+185*Math.cos(elapsed*(.72+i*.09)+h.phase);h.y=245+170*Math.sin(elapsed*(.95+i*.08)+h.phase*.8);if(held&&dist(ball,h)<h.r+12){fail();break}}if(state==='playing'&&held&&dist(ball,corePos)<30){coreIndex++;spark(corePos.x,corePos.y,'#5af5bc',24);if(coreIndex>=8)complete();else spawnCore()}}}render(t,dt);requestAnimationFrame(frame)}requestAnimationFrame(frame);
+function minuteWarning(minLeft){sound(210,.42,'sawtooth',.22);setTimeout(()=>sound(170,.36,'sawtooth',.20),240);let el=$('minuteAlert');if(!el)return;el.textContent=minLeft>0?minLeft+' MINUTES LEFT · HURRY UP':'TIME IS UP';el.classList.remove('active');void el.offsetWidth;el.classList.add('active');setTimeout(()=>el.classList.remove('active'),2200)}
+function frame(t){let dt=Math.min(.05,(t-prev)/1000||0);prev=t;if(rageUntil&&t>rageUntil){$('rage').classList.remove('show');rageUntil=0}if(state==='transition'&&t>=transitionEnd)prepare(level+1);if(state==='playing'){let remaining=deadline-t;let elapsedSeconds=Math.floor(Math.max(0,600000-remaining)/1000);if(elapsedSeconds!==lastSecond){lastSecond=elapsedSeconds;if(elapsedSeconds>0&&elapsedSeconds%60===0&&elapsedSeconds/60!==lastMinute){lastMinute=elapsedSeconds/60;minuteWarning(10-lastMinute)}else if(elapsedSeconds>0&&elapsedSeconds%60!==0)sound(elapsedSeconds>=480?680:570,.026,'sine',.024)}$('clock').textContent=format(remaining);$('clock').classList.toggle('urgent',remaining<60000);if(remaining<=0){setOverlay('TIME<br>EXPIRED','Protocol locked after '+fails+' failures. Free demo — no money involved.','RETRY PROTOCOL ↗','✕')}else if(device==='mobile'){mobileTick(t,dt)}else if(level===3){angle+=dt*(2.7+hits*.65)*lockDirection}else if(level===4){let elapsed=(t-dodgeStart)/1000;let shrink=clamp((elapsed-8)/3,0,1)*45+clamp((elapsed-16)/3,0,1)*45;if(ball.x<shrink+13||ball.x>487-shrink){fail();}for(let h of hazards){if(state!=='playing')break;let homing=clamp((elapsed-9)/15,0,1);let dx=ball.x-h.x,dy=ball.y-h.y,d=Math.max(1,Math.hypot(dx,dy));h.vx+=dx/d*dt*145*homing;h.vy+=dy/d*dt*110*homing;h.vx=clamp(h.vx,-125,125);h.vy=clamp(h.vy,45,185);h.x+=h.vx*dt;h.y+=h.vy*dt;if(h.y>540){h.y=-80-Math.random()*180;h.x=45+Math.random()*410;h.vx=(Math.random()-.5)*35;h.vy=65+Math.random()*35}if(h.x<shrink+20||h.x>480-shrink)h.vx*=-1;if(dist(ball,h)<h.r+12){fail();break}}if(state==='playing'&&elapsed>=24)complete()}else if(level===5){let elapsed=(t-stageStart)/1000;for(let i=0;i<coreSentries.length;i++){let h=coreSentries[i];h.x=250+185*Math.cos(elapsed*(.72+i*.09)+h.phase);h.y=245+170*Math.sin(elapsed*(.95+i*.08)+h.phase*.8);if(held&&dist(ball,h)<h.r+12){fail();break}}if(state==='playing'&&held&&dist(ball,corePos)<30){coreIndex++;spark(corePos.x,corePos.y,'#5af5bc',24);if(coreIndex>=8)complete();else spawnCore()}}}render(t,dt);requestAnimationFrame(frame)}requestAnimationFrame(frame);
 })();</script></body></html>
