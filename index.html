@@ -32,8 +32,8 @@ canvas{touch-action:none!important;-webkit-user-select:none;user-select:none}but
 
 body.mobileMode:has(.intro:not(.hidden)) .rotate{display:none!important}@media(max-width:950px) and (orientation:landscape){body.mobileMode .rotate{display:none!important}}@media(max-width:950px) and (orientation:portrait){body.mobileMode .rotate{display:flex!important}}.soundToggle{position:fixed;bottom:10px;right:10px;z-index:100;background:#182431;border:1px solid #4b586b;color:white;border-radius:10px;padding:10px;font:11px monospace}
 </style></head><body><button class="soundToggle" id="soundToggle">♫ AUDIO OFF</button><div id="rotate" class="rotate"><div class="rotateIcon">▯ ↻</div><h2>RUOTA IL DISPOSITIVO</h2><p>Per giocare da telefono, utilizza la modalità orizzontale.</p></div>
-<div id="intro" class="intro"><div class="introBox"><div class="introTop">THE <b>1%</b> PROTOCOL <span>EXPERIMENT 005</span></div><div class="proxy"><div class="antenna"></div><div class="proxyFace"><div class="proxyEyes"><i></i><i></i></div><div class="proxyMouth"></div></div><div class="proxyBody">PROXY</div></div><div class="speaker">PROXY // YOUR VERY UNHELPFUL GUIDE</div><div class="language"><label for="lang">LANGUAGE / LINGUA</label><select id="lang"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option></select></div><div id="dialogue" class="dialogue">Ehi. Sono PROXY. Ti guiderò attraverso una pessima idea. Piacere.</div><div class="introActions"><button id="nextDialogue" class="btn">CONTINUA →</button></div><div id="devicePanel" class="devicePanel hidden"><h3>COME VUOI GIOCARE?</h3><div class="deviceBtns"><button data-device="mobile">◫ MOBILE <small>Touchscreen · orizzontale</small></button><button data-device="desktop">▣ DESKTOP <small>Mouse consigliato</small></button></div></div><div id="checkout" class="checkout hidden"><div class="checkoutTop">ACCESS PASS <span>DEMO</span></div><div class="price">€3,99 <small>ONE-TIME ENTRY</small></div><p>Simulazione del pagamento. Non verrà addebitato nulla e non verranno richiesti dati bancari.</p><button id="fakePay" class="btn">SIMULA PAGAMENTO · €0,00 →</button><p class="tiny">L'eventuale rimborso promozionale è solo parte della storia del gioco. Nessun denaro reale in questa demo.</p></div></div></div>
-<main class="shell"><div class="top"><div class="brand">THE <b>1%</b> PROTOCOL</div><div class="tag">ARCADE / BUILD 0.7 IOS</div></div><div class="eyebrow">// ONE RUN. FIVE TRIALS.</div><h1>ESCAPE THE <em>PROTOCOL.</em></h1><p class="sub">Five precision trials. Ten minutes. No shortcuts.<br>Free gameplay prototype — no payments or refunds.</p><div class="hud"><div class="metric"><span>TIME LEFT</span><strong id="clock">10:00</strong></div><div class="metric"><span>STAGE</span><strong id="stage">00 / 05</strong></div><div class="metric"><span>FAILURES</span><strong id="fails">00</strong></div></div><div class="track"><div id="progress"></div></div><div class="gamewrap"><canvas id="game" width="500" height="500" aria-label="Arcade game area"></canvas><div class="flash" id="flash"></div><div class="rage" id="rage" aria-live="polite"></div><div class="overlay" id="overlay"><div class="symbol" id="symbol">◇</div><h2 id="ovTitle">ARE YOU<br>THE 1%?</h2><p id="ovDesc">Five arcade trials. One ten-minute countdown. Your reflexes are the only way out.</p><button class="btn" id="action">INITIATE PROTOCOL →</button></div></div><div class="bottom"><div><div class="stageName" id="name">AWAITING INITIATION</div><div class="desc" id="desc">Press initiate to begin. Touch and mouse supported.</div></div><div class="mini" id="mini">SYSTEM READY</div></div><div style="display:flex;justify-content:flex-end;margin:12px 0"><button id="devSkip" type="button" style="background:#242a35;border:1px dashed #687384;color:#cbd5e1;padding:9px 14px;border-radius:8px;cursor:pointer;font:12px monospace">DEV ONLY · SKIP LEVEL →</button></div><div style="color:#5af5bc;font:700 11px monospace;margin-top:10px">↻ WEEKLY MUTATION — Challenges change every week. Adapt or restart.</div><div class="foot">FREE PROTOTYPE · CLIENT-SIDE RESULTS ARE NOT VERIFIED · NOT SUITABLE FOR REAL-MONEY REWARDS. Designed for pointer/touch input. Accessibility and device fairness require further testing.</div></main><div id="cancelCard" class="cancelCard hidden"><div class="cancelInner"><div class="proxy" style="transform:scale(.75);margin:-9px auto"><div class="antenna"></div><div class="proxyFace"><div class="proxyEyes"><i></i><i></i></div><div class="proxyMouth"></div></div><div class="proxyBody">PROXY</div></div><div class="eyebrow">CANCELLATION PROTOCOL</div><h2 id="cancelTitle"></h2><p id="cancelText"></p><button class="btn" id="cancelButton"></button></div></div><script>(()=>{'use strict';
+<div id="intro" class="intro"><div class="introBox"><div class="introTop">THE <b>1%</b> PROTOCOL <span>EXPERIMENT 005</span></div><div class="proxy"><div class="antenna"></div><div class="proxyFace"><div class="proxyEyes"><i></i><i></i></div><div class="proxyMouth"></div></div><div class="proxyBody">PROXY</div></div><div class="speaker">PROXY // YOUR VERY UNHELPFUL GUIDE</div><div class="language"><label for="lang">LANGUAGE / LINGUA</label><select id="lang"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option></select></div><div id="dialogue" class="dialogue">Ehi. Sono PROXY. Ti guiderò attraverso una pessima idea. Piacere.</div><div class="introActions"><button id="nextDialogue" class="btn">CONTINUA →</button></div><div id="devicePanel" class="devicePanel hidden"><h3>COME VUOI GIOCARE?</h3><div class="deviceBtns"><button data-device="mobile">◫ MOBILE <small>Touchscreen · orizzontale</small></button><button data-device="desktop">▣ DESKTOP <small>Mouse consigliato</small></button></div></div><div id="checkout" class="checkout hidden"><div style="border:1px solid #5af5bc;border-radius:12px;padding:12px;margin:10px 0;background:#102b2a"><strong style="color:#5af5bc">↻ THE PROTOCOL IS EVOLVING</strong><p style="font-size:13px;line-height:1.5">Nuove sfide e modifiche ai livelli sono previste ogni settimana. Imparare a vincere oggi non significa saper vincere domani. <b>La rotazione automatica è in sviluppo.</b></p></div><div class="checkoutTop">ACCESS PASS <span>DEMO</span></div><div class="price">€3,99 <small>ONE-TIME ENTRY</small></div><p>Simulazione del pagamento. Non verrà addebitato nulla e non verranno richiesti dati bancari.</p><button id="fakePay" class="btn">SIMULA PAGAMENTO · €0,00 →</button><p class="tiny">L'eventuale rimborso promozionale è solo parte della storia del gioco. Nessun denaro reale in questa demo.</p></div></div></div>
+<main class="shell"><div class="top"><div class="brand">THE <b>1%</b> PROTOCOL</div><div class="tag">ARCADE / BUILD 0.7 IOS</div></div><div class="eyebrow">// ONE RUN. FIVE TRIALS.</div><h1>ESCAPE THE <em>PROTOCOL.</em></h1><p class="sub">Five precision trials. Ten minutes. No shortcuts.<br>Free gameplay prototype — no payments or refunds.</p><div class="hud"><div class="metric"><span>TIME LEFT</span><strong id="clock">10:00</strong></div><div class="metric"><span>STAGE</span><strong id="stage">00 / 05</strong></div><div class="metric"><span>FAILURES</span><strong id="fails">00</strong></div></div><div class="track"><div id="progress"></div></div><div class="gamewrap"><canvas id="game" width="500" height="500" aria-label="Arcade game area"></canvas><div class="flash" id="flash"></div><div class="rage" id="rage" aria-live="polite"></div><div class="overlay" id="overlay"><div class="symbol" id="symbol">◇</div><h2 id="ovTitle">ARE YOU<br>THE 1%?</h2><p id="ovDesc">Five arcade trials. One ten-minute countdown. Your reflexes are the only way out.</p><button class="btn" id="action">INITIATE PROTOCOL →</button></div></div><div class="bottom"><div><div class="stageName" id="name">AWAITING INITIATION</div><div class="desc" id="desc">Press initiate to begin. Touch and mouse supported.</div></div><div class="mini" id="mini">SYSTEM READY</div></div><div style="display:flex;justify-content:flex-end;margin:12px 0"><button id="devSkip" type="button" style="background:#242a35;border:1px dashed #687384;color:#cbd5e1;padding:9px 14px;border-radius:8px;cursor:pointer;font:12px monospace">DEV ONLY · SKIP LEVEL →</button></div><div style="color:#5af5bc;font:700 11px monospace;margin-top:10px">↻ WEEKLY EVOLUTION — New challenges planned every week · rotation in development.</div><div class="foot">FREE PROTOTYPE · CLIENT-SIDE RESULTS ARE NOT VERIFIED · NOT SUITABLE FOR REAL-MONEY REWARDS. Designed for pointer/touch input. Accessibility and device fairness require further testing.</div></main><div id="cancelCard" class="cancelCard hidden"><div class="cancelInner"><div class="proxy" style="transform:scale(.75);margin:-9px auto"><div class="antenna"></div><div class="proxyFace"><div class="proxyEyes"><i></i><i></i></div><div class="proxyMouth"></div></div><div class="proxyBody">PROXY</div></div><div class="eyebrow">CANCELLATION PROTOCOL</div><h2 id="cancelTitle"></h2><p id="cancelText"></p><button class="btn" id="cancelButton"></button></div></div><script>(()=>{'use strict';
 const C=document.getElementById('game'),g=C.getContext('2d'),$=id=>document.getElementById(id),W=500,TAU=Math.PI*2;
 let state='idle',level=0,fails=0,deadline=0,prev=0,seed=1,held=false,pointerId=null,ball={x:35,y:250},hits=0,angle=0,lockDirection=1,targets=[],hazards=[],dodgeStart=0,ghostPath=[],ghostShow=0,ghostProgress=0,ghostActive=false,particles=[],shake=0,transitionEnd=0,rageUntil=0,failCooldown=0,trail=[],pathPart=0,stageStart=0,redRage=0,emptyRage=0,lang="it",lastPointer={x:250,y:250},dodgeBounds=0;
 const names=['','RED LINE','FALSE SIGNAL','PERFECT LOCK','NEON DODGE','CORE RUN'];
@@ -62,7 +62,7 @@ function showTaunt(message){const el=$('rage');el.textContent=message;el.classLi
 const tauntTranslations={it:{1:['Un muro fermo. E hai perso.','Il cursore si è dimesso.','La precisione non è il tuo forte.'],2:['Hai cliccato il vuoto. Complimenti.','La verde era letteralmente verde.','Bel tentativo, ma il nulla non vale punti.'],red:['Hai scelto la ROSSA. Una scelta audace.','Il rosso significa fermati. Era un indizio.','Hai appena regalato la combo a PROXY.'],3:['Il tempismo è in ferie.','La finestra non aspetta nessuno.','Hai mancato anche questa.'],4:['L’ostacolo voleva un abbraccio.','Il radar ti ha trovato.','Hai confuso schivare con colpire.'],5:['La sentinella ringrazia.','Non dovevi toccare quella rossa.','La tua presa è durata pochissimo.']},en:{1:['The wall was standing still.','Your cursor has resigned.','Precision is not your thing.'],2:['You clicked absolutely nothing.','Green means green. Just saying.','The void awards zero points.'],red:['You picked RED. Bold choice.','Red means stop. That was a hint.','You just donated your streak.'],3:['Your timing is on vacation.','The window waits for no one.','Missed it. Again.'],4:['That obstacle wanted a hug.','The radar found you.','Dodging is not hugging.'],5:['The sentry says thanks.','Red was not your friend.','Your grip did not last.']},es:{1:['El muro estaba quieto.','Tu cursor ha dimitido.','La precisión no es lo tuyo.'],2:['Has pulsado la nada.','Verde significa verde.','El vacío no da puntos.'],red:['Elegiste ROJO. Gran idea.','Rojo significa parar.','Acabas de perder tu racha.'],3:['Tu ritmo está de vacaciones.','La ventana no espera.','Fallaste otra vez.'],4:['El obstáculo quería un abrazo.','El radar te encontró.','Esquivar no es abrazar.'],5:['El centinela te da las gracias.','El rojo no era tu amigo.','No duró mucho tu agarre.']}};
 function tauntFor(kind){let pool=(tauntTranslations[lang]||tauntTranslations.it)[kind==='red'?'red':kind==='empty'?2:level];return pool[(rageSeq++)%pool.length]}
 function rage(kind){showTaunt(tauntFor(kind))}
-function fail(kind){if(state!=='playing'||performance.now()<failCooldown)return;sound(135,.32);fails++;$('fails').textContent=String(fails).padStart(2,'0');shake=15;spark(ball.x,ball.y,'#ff405b',22);$('flash').classList.remove('hit');void $('flash').offsetWidth;$('flash').classList.add('hit');rage(kind);let l=level;prepare(l);failCooldown=performance.now()+260}
+function fail(kind){if(state!=='playing'||performance.now()<failCooldown)return;sound(135,.32,'sawtooth',.25);fails++;$('fails').textContent=String(fails).padStart(2,'0');shake=15;spark(ball.x,ball.y,'#ff405b',22);$('flash').classList.remove('hit');void $('flash').offsetWidth;$('flash').classList.add('hit');rage(kind);let l=level;prepare(l);failCooldown=performance.now()+260}
 function complete(){if(state!=='playing')return;sound(830,.35);spark(250,250,'#5af5bc',55);held=false;if(level===5){$('progress').style.width='100%';showCancellation();return}let next=level+1;state='transition';transitionEnd=performance.now()+950;$('mini').textContent='STAGE CLEARED';$('desc').textContent='Stage cleared. Next protocol loading…'}
 const lines=[
 "Ehi. Sono PROXY. Ti guiderò attraverso una pessima idea. Piacere.",
@@ -119,21 +119,159 @@ particles=particles.filter(p=>p.life>0);for(let p of particles){p.x+=p.vx*dt;p.y
 let cancelStep=0;
 const cancelCopy={it:[['Hai completato il protocollo.','Incredibile. Ora vuoi davvero cancellare il tuo piano immaginario?','SÌ, CANCELLA →'],['Sei proprio sicuro?','Abbiamo preparato altre 47 schermate, ma oggi siamo generosi.','SÌ, SONO SICURO →'],['Sicuro sicurissimo?','PROXY sta per perdere il suo unico cliente immaginario.','CANCELLA DAVVERO →'],['PIANO CANCELLATO ✓','Nessun abbonamento reale è mai stato attivato. Nessun addebito, nessun rimborso reale. Hai vinto la demo.','GIOCA DI NUOVO ↗']],en:[['Protocol complete.','Do you really want to cancel your imaginary plan?','YES, CANCEL →'],['Are you sure?','We prepared 47 more screens. Today we feel generous.','YES, I AM SURE →'],['Absolutely, positively sure?','PROXY is about to lose its only imaginary customer.','REALLY CANCEL →'],['PLAN CANCELLED ✓','No real subscription was ever activated. No charges or refunds. You beat the demo.','PLAY AGAIN ↗']],es:[['Protocolo completado.','¿De verdad quieres cancelar tu plan imaginario?','SÍ, CANCELAR →'],['¿Estás seguro?','Preparamos 47 pantallas más, pero hoy somos generosos.','SÍ, ESTOY SEGURO →'],['¿Segurísimo?','PROXY perderá a su único cliente imaginario.','CANCELAR DE VERDAD →'],['PLAN CANCELADO ✓','Nunca se activó ninguna suscripción real. Sin cargos ni reembolsos. Ganaste la demo.','JUGAR OTRA VEZ ↗']]};
 function showCancellation(){state='cancel';held=false;cancelStep=0;$('cancelCard').classList.remove('hidden');renderCancellation()}
-function renderCancellation(){let c=cancelCopy[lang][cancelStep];$('cancelTitle').textContent=c[0];$('cancelText').textContent=c[1];$('cancelButton').textContent=c[2]}
+function renderCancellation(){let c=cancelCopy[lang][cancelStep];$('cancelTitle').textContent=c[0];$('cancelText').textContent=c[1]+(cancelStep===3?'  ↻ Torna ogni settimana: nuove sfide sono in sviluppo.':'');$('cancelButton').textContent=c[2]}
 $('cancelButton').onclick=()=>{if(cancelStep<3){cancelStep++;renderCancellation()}else{$('cancelCard').classList.add('hidden');start()}};
 
-let m={n:0,down:false,start:null,last:null,at:0,lane:1,blocks:[],spawn:0,phase:-Math.PI/2,progress:0,lastAngle:null},audioOn=false,ac=null,musicTick=0;
-function sound(freq=400,dur=.12){if(!audioOn)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();let o=ac.createOscillator(),v=ac.createGain(),t=ac.currentTime;o.type=freq<200?'sawtooth':'triangle';o.frequency.setValueAtTime(freq,t);o.frequency.exponentialRampToValueAtTime(freq*1.3,t+dur);v.gain.setValueAtTime(.18,t);v.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(v);v.connect(ac.destination);o.start(t);o.stop(t+dur)}catch(e){$('soundToggle').textContent='AUDIO UNAVAILABLE'}}
-$('soundToggle').onclick=async()=>{audioOn=!audioOn;$('soundToggle').textContent=audioOn?'♫ AUDIO ON':'♫ AUDIO OFF';if(audioOn){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();await ac.resume();sound(600,.28)}catch(e){audioOn=false;$('soundToggle').textContent='AUDIO UNAVAILABLE'}}};
-setInterval(()=>{if(audioOn&&state==='playing'){musicTick++;sound([110,146.8,164.8,130.8][musicTick%4],.22)}},420);
-function orientationCheck(){if(device!=='mobile'||!introReady)return;let portrait=innerHeight>innerWidth;$('rotate').style.display=portrait?'flex':'none';if(!portrait&&state==='idle')start()}
-addEventListener('resize',orientationCheck);addEventListener('orientationchange',()=>setTimeout(orientationCheck,300));
-function mobilePrepare(l){m={n:0,down:false,start:null,last:null,at:0,lane:1,blocks:[],spawn:performance.now(),phase:-Math.PI/2,progress:0,lastAngle:null};let titles=['','SWIPE SEQUENCE','PULSE GRID','CHARGE BREAK','LANE SHIFT','ORBIT TRACE'];let instructions=['','Swipe the indicated arrow 22 times.','Tap 28 green tiles. Avoid red.','Hold then release inside the green band. Ten rounds.','Tap left or right to dodge falling blocks for 36 seconds.','Trace two and a half clockwise circles without lifting your finger.'];$('name').textContent='0'+l+' — '+titles[l];$('desc').textContent=instructions[l];$('mini').textContent='MOBILE EXCLUSIVE'}
-function mobileDown(p){if(state!=='playing')return;m.down=true;m.start=p;m.last=p;m.at=performance.now();if(level===5){let r=Math.hypot(p.x-250,p.y-250),a=Math.atan2(p.y-250,p.x-250);if(r<120||r>202||Math.abs(Math.atan2(Math.sin(a+Math.PI/2),Math.cos(a+Math.PI/2)))>.4){m.down=false;showTaunt('START AT THE TOP OF THE RING');return}m.lastAngle=a}if(level===2){let cell=Math.floor(p.x/125)+4*Math.floor(p.y/125),target=(m.n*7+3)%16;if(cell===target){m.n++;sound(620);if(m.n>=28)complete()}else fail('red')}else if(level===4){m.lane=clamp(m.lane+(p.x<250?-1:1),0,2);sound(320)}}
-function mobileMove(p){if(!m.down)return;m.last=p;if(level===5){let a=Math.atan2(p.y-250,p.x-250),r=Math.hypot(p.x-250,p.y-250);if(r<120||r>202){fail();return}let prevAngle=m.lastAngle??a,delta=Math.atan2(Math.sin(a-prevAngle),Math.cos(a-prevAngle));m.lastAngle=a;if(delta<-.18){fail();return}if(delta>.9)return;if(delta>0){m.progress+=delta;m.phase=-Math.PI/2+m.progress;if(m.progress>=TAU*2.5-.06)complete()}}}
-function mobileUp(){if(!m.down)return;m.down=false;let p=m.last||m.start;if(level===1){let dx=p.x-m.start.x,dy=p.y-m.start.y,want=(m.n*7+1)%4,actual=Math.abs(dx)>Math.abs(dy)?(dx>0?0:2):(dy<0?1:3);if(Math.hypot(dx,dy)>45&&actual===want){m.n++;sound(540);if(m.n>=22)complete()}else fail()}else if(level===3){let value=Math.min(1,(performance.now()-m.at)/1500),lo=.55+m.n*.035;if(value>=lo&&value<=lo+.13){m.n++;sound(590);if(m.n>=10)complete()}else fail()}else if(level===5)fail()}
-function mobileTick(t,dt){if(level!==4)return;let elapsed=(t-stageStart)/1000;if(t-m.spawn>Math.max(260,690-elapsed*11)){m.spawn=t;m.blocks.push({lane:(m.n*5+Math.floor(elapsed*2))%3,y:-25});m.n++}for(let b of m.blocks){b.y+=dt*(195+elapsed*8);if(b.y>380&&b.y<445&&b.lane===m.lane){fail();return}}m.blocks=m.blocks.filter(b=>b.y<540);if(elapsed>=36)complete()}
-function mobileRender(t){g.save();bg(t);g.textAlign='center';g.fillStyle='#fff';g.font='bold 22px monospace';if(level===1){g.font='bold 115px sans-serif';g.fillStyle='#5af5bc';g.fillText(['→','↑','←','↓'][(m.n*7+1)%4],250,300);g.font='18px monospace';g.fillStyle='#fff';g.fillText('SWIPE THE ARROW',250,125);g.fillText(m.n+' / 22',250,425)}else if(level===2){for(let i=0;i<16;i++)circle(i%4*125+62,Math.floor(i/4)*125+62,40,i===(m.n*7+3)%16?'#5af5bc':'#ff405b',15);g.fillStyle='#fff';g.fillText(m.n+' / 28',250,480)}else if(level===3){let value=m.down?Math.min(1,(t-m.at)/1500):0,lo=.55+m.n*.035;g.fillStyle='#283443';g.fillRect(80,220,340,60);g.fillStyle='#5af5bc';g.fillRect(80+340*lo,220,44,60);g.fillStyle='#ff405b';g.fillRect(80+340*value-4,203,8,95);g.fillStyle='#fff';g.fillText('HOLD · RELEASE IN GREEN',250,130);g.fillText(m.n+' / 10',250,360)}else if(level===4){for(let i=0;i<3;i++){g.strokeStyle='#536172';g.strokeRect(70+i*125,60,110,410)}for(let b of m.blocks){g.fillStyle='#ff405b';g.fillRect(91+b.lane*125,b.y,68,40)}circle(125+m.lane*125,415,25,'#5af5bc',22);g.fillStyle='#fff';g.fillText('TAP LEFT / RIGHT',250,35);g.fillText(Math.max(0,36-(t-stageStart)/1000).toFixed(1)+'s',250,490)}else if(level===5){g.beginPath();g.arc(250,250,160,0,TAU);g.strokeStyle='#526173';g.lineWidth=44;g.stroke();g.beginPath();g.arc(250,250,160,-Math.PI/2,-Math.PI/2+Math.min(m.progress,TAU));g.strokeStyle='#5af5bc';g.lineWidth=13;g.stroke();circle(250+160*Math.cos(m.phase),250+160*Math.sin(m.phase),20,'#5af5bc',17);g.fillStyle='#fff';g.fillText('TRACE CLOCKWISE · HOLD',250,70);g.fillText((m.progress/TAU).toFixed(1)+' / 2.5 LAPS',250,470)}g.restore()}
+
+/* MOBILE ARCADE v2 — five mechanical challenges, shared ten-minute clock */
+let m={},audioOn=false,ac=null,musicTick=0,musicTimer=null;
+function unlockAudio(){
+ if(!audioOn)return;
+ try{
+  if(navigator.audioSession){navigator.audioSession.type='playback'}
+  if(!ac||ac.state==='closed')ac=new(window.AudioContext||window.webkitAudioContext)();
+  if(ac.state!=='running')ac.resume().catch(()=>{});
+ }catch(e){$('soundToggle').textContent='AUDIO ERROR'}
+}
+function sound(freq=400,dur=.13,type='triangle',vol=.18){
+ if(!audioOn)return;
+ try{
+  unlockAudio();if(!ac)return;
+  let t=ac.currentTime,o=ac.createOscillator(),v=ac.createGain();
+  o.type=type;o.frequency.setValueAtTime(freq,t);
+  o.frequency.exponentialRampToValueAtTime(Math.max(50,freq*(type==='sawtooth'?.65:1.15)),t+dur);
+  v.gain.setValueAtTime(vol,t);v.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(v);v.connect(ac.destination);o.start(t);o.stop(t+dur+.01);
+ }catch(e){}
+}
+$('soundToggle').onclick=()=>{
+ audioOn=!audioOn;
+ $('soundToggle').textContent=audioOn?'♫ AUDIO ON · TEST':'♫ AUDIO OFF';
+ if(audioOn){unlockAudio();sound(880,.35,'sine',.32)}
+};
+['touchstart','pointerdown','keydown'].forEach(ev=>document.addEventListener(ev,()=>{if(audioOn)unlockAudio()},{passive:true}));
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&audioOn)unlockAudio()});
+musicTimer=setInterval(()=>{
+ if(!audioOn||state!=='playing')return;
+ musicTick++;
+ let bass=[110,110,146.83,164.81,130.81,146.83,98,130.81][musicTick%8];
+ sound(bass,.28,'triangle',.095);
+ if(musicTick%4===0)sound(440,.065,'square',.035);
+},310);
+function orientationCheck(){
+ if(device!=='mobile'||!introReady)return;
+ let portrait=innerHeight>innerWidth;
+ $('rotate').style.display=portrait?'flex':'none';
+ if(!portrait&&state==='idle')start();
+}
+addEventListener('resize',orientationCheck);
+addEventListener('orientationchange',()=>setTimeout(orientationCheck,250));
+const mobileTitles=['','VECTOR RUSH','FALSE SIGNAL: TOUCH','PERFECT RELEASE','NEON LANES','ORBIT LOCK'];
+const mobileDesc=['','Swipe in the shown direction before the countdown expires. Each success shortens the reaction window.','Catch the moving GREEN target. Red decoys move independently; only a red hit resets progress.','Hold to charge, release inside the narrow moving green window. Seven precision locks.','Dodge unpredictable falling obstacles. Safe lanes narrow as time passes.','Follow the rotating orbit for two full laps, maintaining contact and direction.'];
+function mobilePrepare(l){
+ m={n:0,down:false,start:null,last:null,at:0,lane:1,blocks:[],spawn:performance.now(),phase:0,progress:0,lastAngle:null,stepAt:performance.now(),goal:0,orbitStarted:false,shield:0};
+ $('name').textContent=String(l).padStart(2,'0')+' — '+mobileTitles[l];
+ $('desc').textContent=mobileDesc[l];
+ $('mini').textContent='MOBILE / PRECISION';
+ if(l===2)m.goal=Math.random()*TAU;
+ if(l===3)m.goal=.38;
+ if(l===4)m.shield=performance.now()+650;
+}
+function mobileGreen(t){return{x:250+156*Math.sin(t*.0014+m.n*.8),y:245+152*Math.cos(t*.00117+m.n*.6)}}
+function mobileRed(i,t){return{x:250+180*Math.sin(t*.0009+i*2.2),y:250+175*Math.cos(t*.0011+i*1.7)}}
+function mobileDown(p){
+ if(state!=='playing')return;
+ m.down=true;m.start=p;m.last=p;m.at=performance.now();
+ if(level===2){
+  let t=performance.now(),green=mobileGreen(t);
+  if(dist(p,green)<29){m.n++;sound(690,.12);spark(green.x,green.y,'#5af5bc',12);if(m.n>=10)complete();return}
+  for(let i=0;i<6;i++)if(dist(p,mobileRed(i,t))<24){fail('red');return}
+  showTaunt(tauntFor('empty'));
+ }else if(level===4){
+  m.lane=clamp(m.lane+(p.x<250?-1:1),0,2);sound(320,.06);
+ }else if(level===5){
+  let a=Math.atan2(p.y-250,p.x-250),r=Math.hypot(p.x-250,p.y-250);
+  if(r<123||r>198||Math.abs(Math.atan2(Math.sin(a+Math.PI/2),Math.cos(a+Math.PI/2)))>.48){m.down=false;showTaunt('START AT THE TOP OF THE ORBIT');return}
+  m.orbitStarted=true;m.lastAngle=a;m.progress=0;m.phase=a;
+ }
+}
+function mobileMove(p){
+ if(!m.down||state!=='playing')return;
+ m.last=p;
+ if(level===5){
+  let a=Math.atan2(p.y-250,p.x-250),r=Math.hypot(p.x-250,p.y-250);
+  if(r<119||r>203){fail();return}
+  let delta=Math.atan2(Math.sin(a-m.lastAngle),Math.cos(a-m.lastAngle));
+  if(delta<-.24){fail();return}
+  if(delta>.85){m.lastAngle=a;return}
+  if(delta>0){m.progress+=delta;m.phase=a;m.lastAngle=a;if(m.progress>=TAU*2-.12)complete()}
+ }
+}
+function mobileUp(){
+ if(!m.down)return;
+ m.down=false;
+ let p=m.last||m.start,t=performance.now();
+ if(level===1){
+  let dx=p.x-m.start.x,dy=p.y-m.start.y,actual=Math.abs(dx)>Math.abs(dy)?(dx>0?0:2):(dy<0?1:3);
+  let expected=(m.n*7+1)%4;
+  if(Math.hypot(dx,dy)>=70&&actual===expected&&t-m.stepAt<Math.max(540,1800-m.n*95)){
+   m.n++;m.stepAt=t;sound(620,.09);if(m.n>=12)complete();
+  }else fail();
+ }else if(level===3){
+  let value=Math.min(1,(t-m.at)/1350);
+  let center=.40+.23*Math.sin(t*.003+m.n*1.3),tolerance=Math.max(.034,.10-m.n*.009);
+  if(Math.abs(value-center)<=tolerance){m.n++;sound(700,.12);if(m.n>=7)complete()}
+  else fail();
+ }else if(level===5&&m.orbitStarted)fail();
+}
+function mobileTick(t,dt){
+ if(level===1&&t-m.stepAt>Math.max(540,1800-m.n*95))fail();
+ if(level!==4)return;
+ let elapsed=(t-stageStart)/1000;
+ if(t-m.spawn>Math.max(260,820-elapsed*17)){
+  m.spawn=t;
+  let blocked=Math.floor(Math.random()*3),double=elapsed>12&&Math.random()<.52;
+  m.blocks.push({lane:blocked,y:-45});
+  if(double)m.blocks.push({lane:(blocked+1+Math.floor(Math.random()*2))%3,y:-45});
+ }
+ for(let b of m.blocks){
+  b.y+=dt*(175+elapsed*7);
+  if(t>m.shield&&b.y>375&&b.y<447&&b.lane===m.lane){fail();return}
+ }
+ m.blocks=m.blocks.filter(b=>b.y<550);
+ if(elapsed>=26)complete();
+}
+function mobileRender(t){
+ g.save();bg(t);g.textAlign='center';g.fillStyle='#fff';g.font='bold 18px monospace';
+ if(level===1){
+  let remaining=Math.max(0,Math.max(540,1800-m.n*95)-(t-m.stepAt));
+  g.font='bold 122px sans-serif';g.fillStyle='#5af5bc';g.fillText(['→','↑','←','↓'][(m.n*7+1)%4],250,300);
+  g.fillStyle='#ff405b';g.fillRect(65,375,370*(remaining/1800),10);
+  g.font='17px monospace';g.fillStyle='#fff';g.fillText('SWIPE BEFORE TIME RUNS OUT',250,110);g.fillText(m.n+' / 12',250,445);
+ }else if(level===2){
+  for(let i=0;i<6;i++){let q=mobileRed(i,t);circle(q.x,q.y,22,'#ff405b',10)}
+  let q=mobileGreen(t);circle(q.x,q.y,27,'#5af5bc',22);circle(q.x,q.y,10,'#174f40');
+  g.fillStyle='#fff';g.fillText('GREEN '+m.n+' / 10',250,475);
+ }else if(level===3){
+  let val=m.down?Math.min(1,(t-m.at)/1350):0,center=.40+.23*Math.sin(t*.003+m.n*1.3),tol=Math.max(.034,.10-m.n*.009);
+  g.fillStyle='#283443';g.fillRect(75,220,350,60);
+  g.fillStyle='#5af5bc';g.fillRect(75+350*(center-tol),220,350*tol*2,60);
+  g.fillStyle='#ff405b';g.fillRect(75+350*val-4,198,8,104);
+  g.fillStyle='#fff';g.fillText('RELEASE INSIDE MOVING GREEN',250,125);g.fillText(m.n+' / 7',250,365);
+ }else if(level===4){
+  for(let i=0;i<3;i++){g.strokeStyle='#536172';g.strokeRect(70+i*125,60,110,410)}
+  for(let b of m.blocks){g.fillStyle='#ff405b';g.fillRect(91+b.lane*125,b.y,68,40)}
+  circle(125+m.lane*125,415,24,'#5af5bc',18);
+  g.fillStyle='#fff';g.fillText('TAP LEFT / RIGHT',250,35);g.fillText(Math.max(0,26-(t-stageStart)/1000).toFixed(1)+'s',250,492);
+ }else if(level===5){
+  g.beginPath();g.arc(250,250,160,0,TAU);g.strokeStyle='#526173';g.lineWidth=44;g.stroke();
+  g.beginPath();g.arc(250,250,160,-Math.PI/2,-Math.PI/2+Math.min(TAU,m.progress));g.strokeStyle='#5af5bc';g.lineWidth=14;g.stroke();
+  let ang=m.orbitStarted?m.phase:-Math.PI/2;
+  circle(250+160*Math.cos(ang),250+160*Math.sin(ang),20,'#5af5bc',17);
+  g.fillStyle='#fff';g.fillText('START AT TOP · HOLD · CLOCKWISE',250,60);g.fillText((m.progress/TAU).toFixed(2)+' / 2 LAPS',250,470);
+ }
+ g.restore();
+}
 
 function frame(t){let dt=Math.min(.05,(t-prev)/1000||0);prev=t;if(rageUntil&&t>rageUntil){$('rage').classList.remove('show');rageUntil=0}if(state==='transition'&&t>=transitionEnd)prepare(level+1);if(state==='playing'){let remaining=deadline-t;$('clock').textContent=format(remaining);$('clock').classList.toggle('urgent',remaining<60000);if(remaining<=0){setOverlay('TIME<br>EXPIRED','Protocol locked after '+fails+' failures. Free demo — no money involved.','RETRY PROTOCOL ↗','✕')}else if(device==='mobile'){mobileTick(t,dt)}else if(level===3){angle+=dt*(2.7+hits*.65)*lockDirection}else if(level===4){let elapsed=(t-dodgeStart)/1000;let shrink=clamp((elapsed-8)/3,0,1)*45+clamp((elapsed-16)/3,0,1)*45;if(ball.x<shrink+13||ball.x>487-shrink){fail();}for(let h of hazards){if(state!=='playing')break;let homing=clamp((elapsed-9)/15,0,1);let dx=ball.x-h.x,dy=ball.y-h.y,d=Math.max(1,Math.hypot(dx,dy));h.vx+=dx/d*dt*145*homing;h.vy+=dy/d*dt*110*homing;h.vx=clamp(h.vx,-125,125);h.vy=clamp(h.vy,45,185);h.x+=h.vx*dt;h.y+=h.vy*dt;if(h.y>540){h.y=-80-Math.random()*180;h.x=45+Math.random()*410;h.vx=(Math.random()-.5)*35;h.vy=65+Math.random()*35}if(h.x<shrink+20||h.x>480-shrink)h.vx*=-1;if(dist(ball,h)<h.r+12){fail();break}}if(state==='playing'&&elapsed>=24)complete()}else if(level===5){let elapsed=(t-stageStart)/1000;for(let i=0;i<coreSentries.length;i++){let h=coreSentries[i];h.x=250+185*Math.cos(elapsed*(.72+i*.09)+h.phase);h.y=245+170*Math.sin(elapsed*(.95+i*.08)+h.phase*.8);if(held&&dist(ball,h)<h.r+12){fail();break}}if(state==='playing'&&held&&dist(ball,corePos)<30){coreIndex++;spark(corePos.x,corePos.y,'#5af5bc',24);if(coreIndex>=8)complete();else spawnCore()}}}render(t,dt);requestAnimationFrame(frame)}requestAnimationFrame(frame);
 })();</script></body></html>
